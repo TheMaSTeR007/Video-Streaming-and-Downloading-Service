@@ -1,0 +1,197 @@
+{% extends 'nav.html' %}
+
+      <!-- 
+        - #TV SHOWS
+    -->
+
+    
+    {% block hollywood %}
+      
+    <section class="tv-series">
+      <div class="container">
+
+        <p class="section-subtitle">Best Hollywood</p>
+
+        <h2 class="h2 section-title">Hollywood Movies & Web Series</h2>
+
+
+        <ul class="movies-list">
+
+          {% for i in varH %}
+
+          
+          <li>
+              <div class="movie-card">
+
+                  <a href="{% url 'video_view' i.id %}">
+                    <figure class="card-banner">
+                  <img src="{{ i.thumbnail.url }}" alt="Sonic the Hedgehog 2 movie poster">
+                </figure>
+            </a>
+            
+            <div class="title-wrapper">
+                <a href="{% url 'video_view' i.id %}">
+                    <h3 class="card-title">{{i.title}}</h3>
+                </a>
+                
+                <time datetime="2022">{{vai.released_date}}</time>
+            </div>
+            
+            <div class="card-meta">
+                <div class="badge badge-outline">2K</div>
+                
+                <div class="duration">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="PT122M">{{i.duration}}</time>
+              </div>
+              
+              <div class="rating">
+                  <ion-icon name="star"></ion-icon>
+                  
+                  <data>7.8</data>
+                </div>
+              </div>
+              
+            </div>
+          </li>
+
+          {% endfor %}
+        </ul>
+        
+      </div>
+    </section>
+
+          
+
+        </div>
+      </section>
+      {% endblock hollywood %}
+      
+  <!-- 
+    - #FOOTER
+  -->
+
+{% block footer %}
+  
+
+<footer class="footer">
+  
+  <div class="footer-top">
+    <div class="container">
+      
+      <div class="footer-brand-wrapper">
+
+        <a href="./index.html" class="logo">
+          <img src="../static/images/logo.svg" alt="Filmlane logo">
+          </a>
+          
+          <ul class="footer-list">
+
+            <li>
+              <a href="./index.html" class="footer-link">Home</a>
+            </li>
+            
+            <li>
+              <a href="\movies" class="footer-link">Movie</a>
+            </li>
+            
+            <li>
+              <a href="\webseries" class="footer-link">Web Series</a>
+            </li>
+
+            <li>
+              <a href="\bollywood" class="footer-link">Bollywood</a>
+            </li>
+
+            <li>
+              <a href="\hollywood" class="footer-link">Hollywood</a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <div class="divider"></div>
+<!-- 
+        <div class="quicklink-wrapper">
+          
+          <ul class="quicklink-list">
+            
+            <li>
+              <a href="#" class="quicklink-link">Faq</a>
+            </li>
+            
+            <li>
+              <a href="#" class="quicklink-link">Help center</a>
+            </li>
+            
+            <li>
+              <a href="#" class="quicklink-link">Terms of use</a>
+            </li>
+
+            <li>
+              <a href="#" class="quicklink-link">Privacy</a>
+            </li>
+
+          </ul>
+
+          <ul class="social-list">
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-pinterest"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+            </li>
+
+          </ul>
+
+        </div> -->
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        
+        <p class="copyright">
+          &copy; 2024 <a href="#">Jaimin Gurjar</a>. All Rights Reserved
+        </p>
+        
+        <img src="../static/images/footer-bottom-img.png" alt="Online banking companies logo" class="footer-bottom-img">
+
+      </div>
+    </div>
+
+  </footer>
+
+
+  
+
+  
+  <!-- 
+    - #GO TO TOP
+  -->
+
+  <a href="#top" class="go-top" data-go-top>
+    <ion-icon name="chevron-up"></ion-icon>
+  </a>
+  {% endblock footer %}

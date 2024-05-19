@@ -1,0 +1,617 @@
+{% extends 'nav.html' %}
+
+{% block content %}  
+<article>
+        
+      <!-- 
+        - #HERO
+    -->
+
+      <section class="hero">
+          <div class="container">
+
+              <div class="hero-content">
+
+                  <p class="hero-subtitle">Filmlane</p>
+
+            <h1 class="h1 hero-title">
+              Unlimited <strong>Movie</strong>, Web Series, Hollywood & More.
+            </h1>
+            
+            <div class="meta-wrapper">
+                
+                <div class="badge-wrapper">
+                <div class="badge badge-fill">PG 18</div>
+
+                <div class="badge badge-outline">FULL HD</div>
+                <div class="badge badge-outline">4K HD</div>
+              </div>
+              
+              <div class="ganre-wrapper">
+                <a href="#">Romance</a>
+                <a href="#">Action</a>
+                <a href="#">Drama</a>
+                  
+              </div>
+<!-- 
+              <div class="date-time">
+
+                <div>
+                    <ion-icon name="calendar-outline"></ion-icon>
+
+                    <time datetime="2022">2024</time>
+                </div>
+
+                <div>
+                  <ion-icon name="time-outline"></ion-icon>
+
+                  <time datetime="PT128M">128 min</time>
+                </div>
+
+              </div> -->
+
+            </div>
+
+            <button class="btn btn-primary" type="submit">
+              <ion-icon name="play"></ion-icon>
+              <span>Watch now</span>
+            </button>
+
+          </div>
+          
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #Currently Streaming
+      -->
+
+      <section class="upcoming">
+        <div class="container">
+
+          <div class="flex-wrapper">
+
+            <div class="title-wrapper">
+              <p class="section-subtitle">Online Streaming</p>
+
+              <h2 class="h2 section-title">Movies & Web Series</h2>
+            </div>
+
+            <ul class="filter-list">
+    
+              <li>
+                <a href="\movies" class="navbar-link"><button class="filter-btn">Movies</button></a>
+              </li>
+              <li>
+                <a href="\webseries" class="navbar-link"><button class="filter-btn">Web Series</button></a>
+              </li>
+              <li>
+                <a href="\bollywood" class="navbar-link"><button class="filter-btn">Bollywood</button></a>
+              </li>
+              <li>
+                <a href="\hollywood" class="navbar-link"><button class="filter-btn">Hollywood</button></a>
+              </li>
+                        
+            </ul>
+
+          </div>
+          
+          <ul class="movies-list  has-scrollbar">
+            {% for s in varS %}
+            <li>
+              <div class="movie-card">
+
+                  <a href="{% url 'video_view' s.id %}">
+                  {% comment %} <figure class="card-banner"> {% endcomment %}
+                      
+                    <img src="{{ s.thumbnail.url }}" alt="" height="400px" >
+                  {% comment %} </figure> {% endcomment %}
+                </a>
+
+                <div class="title-wrapper">
+                  <a href="{% url 'video_view' s.id %}">
+                    <h3 class="card-title">{{s.title}}</h3>
+                  </a>
+
+                  <time datetime="2022">{{s.released_date}}</time>
+                </div>
+
+                <div class="card-meta">
+                  <div class="badge badge-outline">HD</div>
+
+                  <div class="duration">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="PT137M">{{s.duration}}</time>
+                  </div>
+
+                  <div class="rating">
+                      <ion-icon name="star"></ion-icon>
+                      
+                    <data>{{ s.ratings }}</data>
+                  </div>
+                </div>
+
+            </div>
+              
+            </li>
+            {% endfor %}
+
+
+            {% for i in vari %}
+            <li>
+              <div class="movie-card">
+
+                  <a href="{% url 'video_view' i.id %}">
+                  {% comment %} <figure class="card-banner"> {% endcomment %}
+                      
+                    <img src="{{ i.thumbnail.url }}" alt="" height="400px" >
+                    <!-- <video width="320" height="240" controls autoplay>
+                      <source src="{{ i.video_field.url }}" type="video/mp4" >
+                      Your browser does not support the video tag.
+                  </video> -->
+                  {% comment %} </figure> {% endcomment %}
+                </a>
+
+                <div class="title-wrapper">
+                  <a href="{% url 'video_view' i.id %}">
+                    <h3 class="card-title">{{i.title}}</h3>
+                  </a>
+
+                  <time datetime="2022">{{i.released_date}}</time>
+                </div>
+
+                <div class="card-meta">
+                  <div class="badge badge-outline">HD</div>
+
+                  <div class="duration">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="PT137M">{{i.duration}}</time>
+                  </div>
+
+                  <div class="rating">
+                      <ion-icon name="star"></ion-icon>
+                      
+                    <data>{{ i.ratings }}</data>
+                  </div>
+                </div>
+
+            </div>
+              
+            </li>
+            {% endfor %}
+            
+        </ul>
+     
+    </div>
+      </section>
+
+
+
+      
+
+      <!-- 
+        - #SERVICE
+    -->
+    
+      <section class="service">
+          <div class="container">
+
+          <div class="service-banner">
+            <figure>
+              <img src="../static/images/service-banner.jpg" alt="HD 4k resolution! only $3.99">
+            </figure>
+
+            <a href="{% images "service-banner.jpg"}" download class="service-btn">
+              <span>Download</span>
+
+              <ion-icon name="download-outline"></ion-icon>
+            </a>
+          </div>
+
+          <div class="service-content">
+
+            <p class="service-subtitle">Our Services</p>
+
+            <h2 class="h2 service-title">Download Your Shows Watch Offline.</h2>
+
+            <p class="service-text">
+              Download your favorite shows to watch offline anytime, anywhere! 
+              Enjoy uninterrupted entertainment on the go by saving your shows to your device and 
+              watching them without needing an internet connection. Never miss an episode again with offline viewing!
+            </p>
+
+            <ul class="service-list">
+
+                <li>
+                <div class="service-card">
+
+                    <div class="card-icon">
+                    <ion-icon name="tv"></ion-icon>
+                  </div>
+
+                  <div class="card-content">
+                      <h3 class="h3 card-title">Enjoy on Your TV.</h3>
+                      
+                      <p class="card-text">
+                        Experience your favorite shows on the big screen! 
+                        Enjoy seamless entertainment by streaming directly to your TV. 
+                        Dive into your favorite series and movies with stunning visuals and immersive sound, 
+                        creating a cinematic experience right in your living room.
+                    </p>
+                </div>
+
+                </div>
+            </li>
+
+             <li>
+                <div class="service-card">
+                    
+                    <div class="card-icon">
+                        <ion-icon name="videocam"></ion-icon>
+                    </div>
+
+                  <div class="card-content">
+                    <h3 class="h3 card-title">Watch Everywhere.</h3>
+
+                    <p class="card-text">
+                      Watch your favorite content everywhere you go! 
+                      With access on multiple devices, enjoy your shows and movies seamlessly whether you're at home, commuting, or traveling. 
+                      Take your entertainment with you and never miss a moment of your favorite programs.
+                    </p>
+                  </div>
+
+                </div>
+              </li> 
+
+            </ul>
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #TOP RATED
+    -->
+
+    <section class="top-rated">
+        <div class="container">
+
+          <p class="section-subtitle">Online Streaming</p>
+          
+          <h2 class="h2 section-title">Top Rated Movies</h2>
+          
+          <!-- <ul class="filter-list">
+
+              <li>
+                  <button class="filter-btn">Movies</button>
+            </li>
+            
+            <li>
+                <button class="filter-btn">TV Shows</button>
+              </li>
+
+            <li>
+                <button class="filter-btn">Documentary</button>
+            </li>
+            
+            <li>
+              <button class="filter-btn">Sports</button>
+            </li>
+
+          </ul> -->
+
+          <ul class="movies-list">
+            
+            {% for i in var2 %}
+              <li>
+              <div class="movie-card">
+
+                  <a href="{% url 'video_view' i.id %}">
+                      <figure class="card-banner">
+                    <img src="{{ i.thumbnail.url }}" alt="Sonic the Hedgehog 2 movie poster">
+                  </figure>
+                </a>
+
+                <div class="title-wrapper">
+                  <a href="{% url 'video_view' i.id %}">
+                    <h3 class="card-title">{{i.title}}</h3>
+                  </a>
+
+                  <time datetime="2022">{{i.released_date}}</time>
+                </div>
+
+                <div class="card-meta">
+                  <div class="badge badge-outline">2K</div>
+
+                  <div class="duration">
+                      <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="PT122M">{{i.duration}}</time>
+                </div>
+
+                <div class="rating">
+                    <ion-icon name="star"></ion-icon>
+                    
+                    <data>7.8</data>
+                  </div>
+                </div>
+                
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+          
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #TV SERIES
+      -->
+
+      <section class="tv-series">
+        <div class="container">
+
+          <p class="section-subtitle">Best TV Series</p>
+
+          <h2 class="h2 section-title">World Best TV Series</h2>
+
+
+          <ul class="movies-list">
+<!--             
+            {% for i in var3 %}
+              <li>
+              <div class="movie-card">
+
+                  <a href="{% url 'video_view' i.id %}">
+                      <figure class="card-banner">
+                    <img src="{{ i.thumbnail.url }}" alt="Sonic the Hedgehog 2 movie poster">
+                  </figure>
+                </a>
+
+                <div class="title-wrapper">
+                  <a href="{% url 'video_view' i.id %}">
+                    <h3 class="card-title">{{i.title}}</h3>
+                  </a>
+
+                  <time datetime="2022">{{i.released_date}}</time>
+                </div>
+
+                <div class="card-meta">
+                  <div class="badge badge-outline">2K</div>
+
+                  <div class="duration">
+                      <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="PT122M">{{i.duration}}</time>
+                </div>
+
+                <div class="rating">
+                    <ion-icon name="star"></ion-icon>
+                    
+                    <data>7.8</data>
+                  </div>
+                </div>
+                
+              </div>
+            </li>
+            {% endfor %} -->
+            {% for i in var4 %}
+              <li>
+              <div class="movie-card">
+
+                  <a href="{% url 'video_view' i.id %}">
+                      <figure class="card-banner">
+                    <img src="{{ i.thumbnail.url }}" alt="Sonic the Hedgehog 2 movie poster">
+                  </figure>
+                </a>
+
+                <div class="title-wrapper">
+                  <a href="{% url 'video_view' i.id %}">
+                    <h3 class="card-title">{{i.title}}</h3>
+                  </a>
+
+                  <time datetime="2022">{{i.released_date}}</time>
+                </div>
+
+                <div class="card-meta">
+                  <div class="badge badge-outline">2K</div>
+
+                  <div class="duration">
+                      <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="PT122M">{{i.duration}}</time>
+                </div>
+
+                <div class="rating">
+                    <ion-icon name="star"></ion-icon>
+                    
+                    <data>7.8</data>
+                  </div>
+                </div>
+                
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+          
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #CTA
+      -->
+<!-- 
+      <section class="cta">
+        <div class="container">
+
+          <div class="title-wrapper">
+            <h2 class="cta-title">Trial start first 30 days.</h2>
+
+            <p class="cta-text">
+              Enter your email to create or restart your membership.
+            </p>
+          </div>
+
+          <form action="" class="cta-form">
+            <input type="email" name="email" required placeholder="Enter your email" class="email-field">
+
+            <button type="submit" class="cta-form-btn">Get started</button>
+          </form>
+
+        </div>
+      </section> -->
+
+    </article>
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+{% block footer %}
+  
+
+<footer class="footer">
+  
+  <div class="footer-top">
+    <div class="container">
+      
+      <div class="footer-brand-wrapper">
+
+        <a href="./index.html" class="logo">
+          <img src="../static/images/logo.svg" alt="Filmlane logo">
+          </a>
+          
+          <ul class="footer-list">
+
+            <li>
+              <a href="./index.html" class="footer-link">Home</a>
+            </li>
+            
+            <li>
+              <a href="\movies" class="footer-link">Movie</a>
+            </li>
+            
+            <li>
+              <a href="\webseries" class="footer-link">Web Series</a>
+            </li>
+
+            <li>
+              <a href="\bollywood" class="footer-link">Bollywood</a>
+            </li>
+
+            <li>
+              <a href="\hollywood" class="footer-link">Hollywood</a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <div class="divider"></div>
+<!-- 
+        <div class="quicklink-wrapper">
+          
+          <ul class="quicklink-list">
+            
+            <li>
+              <a href="#" class="quicklink-link">Faq</a>
+            </li>
+            
+            <li>
+              <a href="#" class="quicklink-link">Help center</a>
+            </li>
+            
+            <li>
+              <a href="#" class="quicklink-link">Terms of use</a>
+            </li>
+
+            <li>
+              <a href="#" class="quicklink-link">Privacy</a>
+            </li>
+
+          </ul>
+
+          <ul class="social-list">
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-pinterest"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+            </li>
+
+          </ul>
+
+        </div> -->
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        
+        <p class="copyright">
+          &copy; 2024 <a href="#">Jaimin Gurjar</a>. All Rights Reserved
+        </p>
+        
+        <img src="../static/images/footer-bottom-img.png" alt="Online banking companies logo" class="footer-bottom-img">
+
+      </div>
+    </div>
+
+  </footer>
+
+
+  
+
+  
+  <!-- 
+    - #GO TO TOP
+  -->
+
+  <a href="#top" class="go-top" data-go-top>
+    <ion-icon name="chevron-up"></ion-icon>
+  </a>
+  {% endblock footer %}
+
+{% endblock content %}

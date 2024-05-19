@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Gallery</title>
+</head>
+<body>
+    {% for video in vari %}
+    <div>
+        <video width="320" height="240" controls autoplay>
+            <source src="{{ video.video_field }}" type="video/mp4" >
+            Your browser does not support the video tag.
+        </video>
+        <p>Description: {{ video.video_desc }}</p>
+        <p>duration : {{video.duration}}</p>
+        <p>releasse date :{{video.released_date}}</p>
+    </div>
+    {% endfor %}
+</body>
+</html>

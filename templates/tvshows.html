@@ -1,0 +1,66 @@
+{% extends 'nav.html' %}
+
+      <!-- 
+        - #TV SHOWS
+    -->
+
+    
+    {% block tvshows %}
+      
+    <section class="tv-series">
+      <div class="container">
+
+        <p class="section-subtitle">Best TV Series</p>
+
+        <h2 class="h2 section-title">World Best TV Series</h2>
+
+
+        <ul class="movies-list">
+
+          {% for i in var4 %}
+            <li>
+            <div class="movie-card">
+
+                <a href="{% url 'video_view' i.id %}">
+                    <figure class="card-banner">
+                  <img src="{{ i.thumbnail.url }}" alt="Sonic the Hedgehog 2 movie poster">
+                </figure>
+              </a>
+
+              <div class="title-wrapper">
+                <a href="{% url 'video_view' i.id %}">
+                  <h3 class="card-title">{{i.title}}</h3>
+                </a>
+
+                <time datetime="2022">{{i.released_date}}</time>
+              </div>
+
+              <div class="card-meta">
+                <div class="badge badge-outline">2K</div>
+
+                <div class="duration">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                  <time datetime="PT122M">{{i.duration}}</time>
+              </div>
+
+              <div class="rating">
+                  <ion-icon name="star"></ion-icon>
+                  
+                  <data>7.8</data>
+                </div>
+              </div>
+              
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+        
+      </div>
+    </section>
+
+          
+
+        </div>
+      </section>
+      {% endblock tvshows %}
